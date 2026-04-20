@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>75th Ranger Regiment — Postulación de Escuadrón</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Share+Tech+Mono&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #4CAF50;
+
+  --bg: #0B0C0A;
+  --panel: #141512;
+  --border: #2A2E26;
+
+  --text: #D4CFBF;
+  --text-muted: #7A7A6A;
+
+  --tan: #4CAF50; /* ahora tu verde */
+  --tan-dark: #3A8F40;
+
+  --olive: #1B1E18;
+  --olive-light: #2A2E26;
+
+  --panel-border: #2A2E26;
+
+  --mono: 'Share Tech Mono', monospace;
+  --display: 'Oswald', sans-serif;
+  --body: 'Barlow', sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background: 
+    linear-gradient(rgba(11,12,10,0.85), rgba(11,12,10,0.85)),
+    url("/back.png");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: var(--text);
+  font-family: var(--body);
+}
+
+
+
+  .page-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--panel-border);
+    position: relative;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--tan);
+  }
+
+  .regiment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    padding: 8px 20px;
+    margin-bottom: 24px;
+    letter-spacing: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--tan);
+    text-transform: uppercase;
+  }
+
+  .regiment-badge .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--tan);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .header-title {
+    font-family: var(--display);
+    font-size: clamp(32px, 6vw, 54px);
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .header-subtitle {
+    font-family: var(--display);
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 400;
+    color: var(--tan);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .header-motto {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+
+  .header-crest {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  /* ── DECORATIVE LINES ── */
+  .deco-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .deco-line::before, .deco-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--panel-border));
+  }
+
+  .deco-line::after {
+    background: linear-gradient(to left, transparent, var(--panel-border));
+  }
+
+  .deco-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    white-space: nowrap;
+  }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    padding: 40px;
+    position: relative;
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--olive), var(--tan), var(--olive));
+  }
+
+  /* corner brackets */
+  .form-card::after {
+    content: '';
+    position: absolute;
+    bottom: 12px; right: 12px;
+    width: 20px; height: 20px;
+    border-bottom: 1px solid var(--panel-border);
+    border-right: 1px solid var(--panel-border);
+  }
+
+  .corner-tl {
+    position: absolute;
+    top: 12px; left: 12px;
+    width: 20px; height: 20px;
+    border-top: 1px solid var(--panel-border);
+    border-left: 1px solid var(--panel-border);
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--tan);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--panel-border);
+  }
+
+  /* ── FORM ELEMENTS ── */
+  .field-group {
+    margin-bottom: 24px;
+  }
+
+  label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  label .required {
+    color: var(--tan);
+    margin-left: 4px;
+  }
+
+  input[type="text"],
+  select {
+    width: 100%;
+    background: #0D0F0B;
+    border: 1px solid var(--panel-border);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  input[type="text"]:focus,
+  select:focus {
+    border-color: var(--tan);
+    box-shadow: 0 0 0 1px rgba(200, 169, 110, 0.15), inset 0 0 20px rgba(200, 169, 110, 0.03);
+  }
+
+  input[type="text"]::placeholder {
+    color: #3A3A30;
+    font-style: italic;
+  }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C8A96E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  select option {
+    background: #111210;
+    color: var(--text);
+  }
+
+  /* ── SQUADRON SELECTOR ── */
+  .squadron-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .squadron-card {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .squadron-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .squadron-label {
+    display: block;
+    background: #0D0F0B;
+    border: 1px solid var(--panel-border);
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .squadron-label::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--tan);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+
+  .squadron-card input:checked + .squadron-label {
+    border-color: var(--tan);
+    background: rgba(200, 169, 110, 0.05);
+  }
+
+  .squadron-card input:checked + .squadron-label::before {
+    transform: scaleX(1);
+  }
+
+  .squadron-label:hover {
+    border-color: var(--olive-light);
+  }
+
+  .sq-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+    filter: grayscale(0.3);
+  }
+
+  .sq-code {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--tan);
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .sq-name {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .sq-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    line-height: 1.4;
+    display: block;
+  }
+
+  .squadron-card input:checked + .squadron-label .sq-name {
+    color: var(--tan);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--panel-border);
+    margin: 32px 0;
+    position: relative;
+  }
+
+  /* ── SUBMIT BUTTON ── */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--display);
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit-btn:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+  .submit-btn:active {
+    transform: scale(0.995);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .submit-btn .btn-shimmer {
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+    transition: left 0.5s;
+  }
+
+  .submit-btn:hover .btn-shimmer {
+    left: 150%;
+  }
+
+  /* ── STATUS MESSAGES ── */
+  .status-box {
+    display: none;
+    padding: 16px 20px;
+    margin-top: 20px;
+    border-left: 3px solid;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .status-box.success {
+    display: block;
+    border-color: var(--success-bright);
+    background: rgba(46, 94, 46, 0.1);
+    color: #7ECF7E;
+  }
+
+  .status-box.error {
+    display: block;
+    border-color: var(--red-bright);
+    background: rgba(139, 26, 26, 0.12);
+    color: #E07070;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    line-height: 2;
+  }
+
+  .footer-code {
+    color: #3A3A30;
+    font-size: 9px;
+    margin-top: 8px;
+  }
+
+  /* ── RANK SELECT WITH ICON ── */
+  .select-wrapper {
+    position: relative;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 560px) {
+    .form-card { padding: 24px 20px; }
+    .squadron-grid { grid-template-columns: 1fr; }
+    .header-title { letter-spacing: 3px; }
+  }
+
+  /* ── LOADING SPINNER ── */
+  .spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+
+
+    <!-- SVG Crest -->
+
+
+    <h1 class="header-title">75th Ranger</h1>
+    <p class="header-subtitle">Regiment</p>
+    <p class="header-motto">"Rangers Lead the Way" — Sua Sponte</p>
+  </header>
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <div class="corner-tl"></div>
+
+    <div class="deco-line">
+      <span class="deco-label">// FORMULARIO DE POSTULACIÓN //</span>
+    </div>
+
+    <form id="appForm" novalidate>
+
+      <!-- SECCIÓN 1: DATOS -->
+      <p class="section-label">// 01 — IDENTIFICACIÓN</p>
+      <h2 class="section-title">Datos del Operador</h2>
+
+      <div class="field-group">
+        <label for="discord">NOMBRE DE DISCORD <span class="required">*</span></label>
+        <input type="text" id="discord" name="discord" placeholder="Ej: Username#0000" required autocomplete="off" spellcheck="false">
+      </div>
+
+<div class="field-group">
+  <label for="rango">RANGO ACTUAL <span class="required">*</span></label>
+  <div class="select-wrapper">
+    <select id="rango" name="rango" required>
+      <option value="" disabled selected>— Seleccionar rango —</option>
+
+      <optgroup label="Alistados">
+        <option value="E1">E-1 | Recluta</option>
+        <option value="E2">E-2 | Soldado</option>
+        <option value="E3">E-3 | Soldado de primera clase</option>
+        <option value="E4">E-4 | Cabo</option>
+        <option value="E5">E-5 | Sargento</option>
+        <option value="E6">E-6 | Sargento de Estado Mayor</option>
+        <option value="E7">E-7 | Sargento de primera clase</option>
+        <option value="E8_1">E-8 | Sargento Maestro</option>
+        <option value="E8_2">E-8 | Primer Sargento</option>
+        <option value="E9_1">E-9 | Sargento Mayor</option>
+        <option value="E9_2">E-9 | Sargento Mayor del Ejército</option>
+        <option value="E9_3">E-9 | Sargento Mayor de Comando</option>
+      </optgroup>
+
+      <optgroup label="Oficiales">
+        <option value="O1">O-1 | Subteniente</option>
+        <option value="O2">O-2 | Teniente</option>
+        <option value="O3">O-3 | Capitán</option>
+        <option value="O4">O-4 | Mayor</option>
+        <option value="O5">O-5 | Teniente Coronel</option>
+        <option value="O6">O-6 | Coronel</option>
+        <option value="O7">O-7 | General de Brigada</option>
+        <option value="O8">O-8 | General de División</option>
+        <option value="O9">O-9 | Teniente General</option>
+        <option value="O10">O-10 | General</option>
+        <option value="O11">O-11 | General del Ejército</option>
+      </optgroup>
+
+      <optgroup label="Formación">
+        <option value="OCS">Officer Candidate - OCS</option>
+      </optgroup>
+
+    </select>
+  </div>
+</div>
+
+      <div class="divider"></div>
+
+      <!-- SECCIÓN 2: ESCUADRÓN -->
+      <p class="section-label">// 02 — DESTINO</p>
+      <h2 class="section-title">Escuadrón Solicitado</h2>
+
+      <div class="squadron-grid">
+
+        <!-- Green Berets -->
+        <div class="squadron-card">
+          <input type="radio" name="squadron" id="sq_gb" value="Green Berets" required>
+          <label class="squadron-label" for="sq_gb">
+            <span class="sq-icon">🟩</span>
+            <span class="sq-code">SF-ODA</span>
+            <span class="sq-name">Green Berets</span>
+            <span class="sq-desc">Operaciones especiales de largo alcance</span>
+          </label>
+        </div>
+
+        <!-- SOAR -->
+        <div class="squadron-card">
+          <input type="radio" name="squadron" id="sq_soar" value="SOAR">
+          <label class="squadron-label" for="sq_soar">
+            <span class="sq-icon">🚁</span>
+            <span class="sq-code">160th SOAR</span>
+            <span class="sq-name">SOAR</span>
+            <span class="sq-desc">Aviación de Operaciones Especiales</span>
+          </label>
+        </div>
+
+        <!-- 24 STS -->
+        <div class="squadron-card">
+          <input type="radio" name="squadron" id="sq_24sts" value="24STS">
+          <label class="squadron-label" for="sq_24sts">
+            <span class="sq-icon">⚡</span>
+            <span class="sq-code">24th STS</span>
+            <span class="sq-name">24STS</span>
+            <span class="sq-desc">Táctica Especial de la USAF</span>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SUBMIT -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-shimmer"></span>
+        Enviar Postulación
+      </button>
+
+      <div class="status-box" id="statusBox"></div>
+
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>75th RANGER REGIMENT · RolePlay MILSIM</p>
+    <p>Este formulario está sujeto a revisión por la cúpula de altos mandos</p>
+    <p class="footer-code">Formulario // 75RR // MILSIM</p>
+  </footer>
+
+</div>
+
+<script>
+  // ──────────────────────────────────────────────
+  //  CONFIGURACIÓN — pegar URL del webhook aquí
+  // ──────────────────────────────────────────────
+  const WEBHOOK_URL = "https://ranger-back.onrender.com/send";
+  // ──────────────────────────────────────────────
+
+  const form = document.getElementById("appForm");
+  const btn = document.getElementById("submitBtn");
+  const statusBox = document.getElementById("statusBox");
+
+  const squadronLeaders = {
+  "Green Berets": "1475719060808405062",
+  "SOAR": "1475719074708197429",
+  "24STS": "1488943008333430925"
+};
+  const squadronColors = {
+    "Green Berets": 0x2ECC71,
+    "SOAR": 0xE74C3C,
+    "24STS": 0x3498DB
+  };
+
+  const squadronIcons = {
+    "Green Berets": "🟩",
+    "SOAR": "🚁",
+    "24STS": "⚡"
+  };
+
+  function showStatus(type, message) {
+    statusBox.className = "status-box " + type;
+    statusBox.innerHTML = message;
+    statusBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function hideStatus() {
+    statusBox.className = "status-box";
+    statusBox.textContent = "";
+  }
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    hideStatus();
+
+    const discord = document.getElementById("discord").value.trim();
+    const rango = document.getElementById("rango").value;
+    const squadronInput = document.querySelector('input[name="squadron"]:checked');
+
+    if (!discord || !rango || !squadronInput) {
+      showStatus("error", "⚠ CAMPOS INCOMPLETOS — Completa todos los campos antes de enviar.");
+      return;
+    }
+
+    const squadron = squadronInput.value;
+
+    if (WEBHOOK_URL === "") {
+      showStatus("error", "⚠ WEBHOOK NO CONFIGURADO — Edita el archivo HTML y reemplaza la variable WEBHOOK_URL con tu URL de webhook de Discord.");
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>TRANSMITIENDO...';
+
+const leaderRoleId = squadronLeaders[squadron];
+
+const payload = {
+  content: leaderRoleId ? `<@&${leaderRoleId}>` : "",
+  allowed_mentions: {
+    parse: ["roles"]
+  },
+  username: "75th Ranger Regiment - Escuadrones",
+  avatar_url: "https://imgur.com/8Ao2CdJ",
+  embeds: [{
+    title: "NUEVA POSTULACIÓN DE ESCUADRÓN",
+    description: "Se ha recibido una solicitud de incorporación.",
+    color: squadronColors[squadron] || 0xC8A96E,
+    fields: [
+      {
+        name: "👤 Discord",
+        value: discord,
+        inline: true
+      },
+      {
+        name: "🥇 Rango",
+        value: rango,
+        inline: true
+      },
+      {
+        name: `${squadronIcons[squadron]} Escuadrón Solicitado`,
+        value: squadron,
+        inline: false
+      }
+    ],
+    footer: {
+      text: "75th Ranger Regiment · Milsim Operations"
+    },
+    timestamp: new Date().toISOString()
+  }]
+};
+
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok || response.status === 204) {
+        showStatus("success",
+          "ENVÍO EXITOSA\n\n" +
+          "Tu postulación ha sido enviada a los Altos Mandos.\n" +
+          "Discord: " + discord + " | Escuadrón: " + squadron + "\n\n" +
+          "Espera contacto de un oficial para continuar el proceso."
+        );
+        form.reset();
+        btn.innerHTML = "ENVIADO";
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = '<span class="btn-shimmer"></span>Enviar Postulación';
+        }, 4000);
+      } else {
+        throw new Error("HTTP " + response.status);
+      }
+    } catch (err) {
+      showStatus("error",
+        "ERROR\n\nNo se pudo conectar con el servidor de Discord.\n" +
+        "Verifica que el webhook URL sea correcto. (" + err.message + ")"
+      );
+      btn.disabled = false;
+      btn.innerHTML = '<span class="btn-shimmer"></span>Enviar Postulación';
+    }
+  });
+</script>
+</body>
+</html>

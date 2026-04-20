@@ -41,7 +41,7 @@ html, body {
 
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 
   color: var(--text);
   font-family: var(--body);
@@ -314,6 +314,7 @@ html, body {
     transition: border-color 0.2s, background 0.2s;
     position: relative;
     overflow: hidden;
+    will-change: transform;
   }
 
   .squadron-label::before {
@@ -699,11 +700,10 @@ html, body {
     hideStatus();
 
     const discord = document.getElementById("discord").value.trim();
-   const roblox = document.getElementById("roblox").value.trim();
     const rango = document.getElementById("rango").value;
     const squadronInput = document.querySelector('input[name="squadron"]:checked');
 
-    if (!discord || !roblox || !rango || !squadronInput) {
+    if (!discord || !rango || !squadronInput) {
       showStatus("error", "⚠ CAMPOS INCOMPLETOS — Completa todos los campos antes de enviar.");
       return;
     }
@@ -732,11 +732,6 @@ const payload = {
     description: "Se ha recibido una solicitud de incorporación.",
     color: squadronColors[squadron] || 0xC8A96E,
     fields: [
-           {
-        name: "🎮 Roblox",
-        value: roblox,
-        inline: true
-      },
       {
         name: "👤 Discord",
         value: discord,

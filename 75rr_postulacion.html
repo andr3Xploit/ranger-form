@@ -340,12 +340,14 @@ html, body {
     border-color: var(--olive-light);
   }
 
-  .sq-icon {
-    font-size: 28px;
-    margin-bottom: 8px;
-    display: block;
-    filter: grayscale(0.3);
-  }
+.sq-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  filter: grayscale(30%) brightness(0.9);
+  transition: all 0.2s ease;
+}
 
   .sq-code {
     font-family: var(--mono);
@@ -375,8 +377,14 @@ html, body {
     display: block;
   }
 
-  .squadron-card input:checked + .squadron-label .sq-name {
-    color: var(--tan);
+  .squadron-card input:checked + .squadron-label .sq-icon {
+    filter: none;
+    transform: scale(1.05);
+
+  }
+
+  .squadron-label:hover .sq-icon {
+    filter: none;
   }
 
   /* ── DIVIDER ── */
@@ -602,19 +610,19 @@ html, body {
         <!-- Green Berets -->
         <div class="squadron-card">
           <input type="radio" name="squadron" id="sq_gb" value="Green Berets" required>
-          <label class="squadron-label" for="sq_gb">
-            <span class="sq-icon">🟩</span>
-            <span class="sq-code">SF-ODA</span>
-            <span class="sq-name">Green Berets</span>
-            <span class="sq-desc">Operaciones especiales de largo alcance</span>
-          </label>
+            <label class="squadron-label" for="sq_gb">
+              <img class="sq-icon" src="./greenberets.png">
+              <span class="sq-code">SF-ODA</span>
+              <span class="sq-name">Green Berets</span>
+              <span class="sq-desc">Operaciones especiales de largo alcance</span>
+            </label>
         </div>
 
         <!-- SOAR -->
         <div class="squadron-card">
           <input type="radio" name="squadron" id="sq_soar" value="SOAR">
           <label class="squadron-label" for="sq_soar">
-            <span class="sq-icon">🚁</span>
+            <img class="sq-icon" src="./soar.png">
             <span class="sq-code">160th SOAR</span>
             <span class="sq-name">SOAR</span>
             <span class="sq-desc">Aviación de Operaciones Especiales</span>
@@ -624,12 +632,12 @@ html, body {
         <!-- 24 STS -->
         <div class="squadron-card">
           <input type="radio" name="squadron" id="sq_24sts" value="24STS">
-          <label class="squadron-label" for="sq_24sts">
-            <span class="sq-icon">⚡</span>
-            <span class="sq-code">24th STS</span>
-            <span class="sq-name">24STS</span>
-            <span class="sq-desc">Táctica Especial de la USAF</span>
-          </label>
+            <label class="squadron-label" for="sq_24sts">
+              <img class="sq-icon" src="./sts.png">
+              <span class="sq-code">24th STS</span>
+              <span class="sq-name">24STS</span>
+              <span class="sq-desc">Táctica Especial de la USAF</span>
+            </label>
         </div>
 
       </div>
